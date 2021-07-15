@@ -1,0 +1,23 @@
+{
+  "name": "blogc20",
+  "version": "1.0.0",
+  "private": true,
+  "description": "blogc20",
+  "author": "carlosc20",
+  "keywords": [
+    "gatsby"
+  ],
+  "scripts": {
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean"
+  },
+  "dependencies": {
+    "gatsby": "^3.9.1",
+    "gatsby-plugin-gatsby-cloud": "^2.9.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  }
+}
