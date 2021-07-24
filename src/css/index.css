@@ -1,0 +1,33 @@
+@tailwind base;
+
+@layer base {
+  h1 {
+    @apply text-2xl pb-2;
+  }
+  h2 {
+    @apply text-xl pb-2;
+  }
+  h3 {
+    @apply text-lg pb-2;
+  }
+}
+
+@tailwind components;
+@tailwind utilities;
+
+/*
+@import popup.css body {
+  @apply bg-purple-200;
+}
+*/
+
+.btn {
+  @apply py-2 px-4 font-semibold rounded-lg shadow-md;
+}
+.btn-green {
+  @apply text-white bg-green-500 hover:bg-green-700;
+}
+
+body {
+  @apply bg-gradient-to-r from-indigo-50 to-indigo-100;
+}

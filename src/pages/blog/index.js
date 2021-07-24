@@ -52,17 +52,18 @@ const BlogPage = ({data}) => {
       <ul>
         { postsToDisplay.map(node => {
           return (
-            <li key={node.slug}>
-              <article>
-                <h2>
-                  <Link to={node.slug}>
-                    {node.frontmatter.title}
-                  </Link>
-                </h2>
-                <p>Posted: {node.frontmatter.date}</p>
-                <p>Tags: {node.frontmatter.tags.toString()}</p>
+            <li className="py-2" key={node.slug}>
+              <article className="mx-auto bg-white rounded-xl shadow-md overflow-hidden" >
+                <div className="p-8">
+                  <h2>
+                    <Link className="block text-lg leading-tight font-medium text-black hover:underline font-semibold" to={node.slug}>
+                      {node.frontmatter.title}
+                    </Link>
+                  </h2>
+                  <p className="text-gray-500" >Posted: {node.frontmatter.date}</p>
+                  <p className="text-gray-500" >Tags: {node.frontmatter.tags.toString()}</p>
+                </div>
               </article>
-              <hr />
             </li>
           )
         })}

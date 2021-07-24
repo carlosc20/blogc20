@@ -5,7 +5,7 @@ const PostFilterList = ({ filters, onAdd, onRemove }) => {
   return (
     <ul>
       {filters.map((tag) => (
-        <li>
+        <li className="inline pr-4" >
           <TagChip 
             text={tag} onAdd={onAdd} onRemove={onRemove} />
         </li>

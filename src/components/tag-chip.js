@@ -9,7 +9,7 @@ const TagChip = ({ text, onAdd, onRemove }) => {
   return (
     <button
       type="button"
-      className={`${isSelected ? selected : ""}`}
+      className={`${isSelected ? selected : ""} btn btn-green`} 
       onClick={() => {
         if (isSelected) {
           onRemove(text)
@@ -25,5 +25,7 @@ const TagChip = ({ text, onAdd, onRemove }) => {
     </button>
   )
 }
+
+// @tailwind @apply
 
 export default TagChip
