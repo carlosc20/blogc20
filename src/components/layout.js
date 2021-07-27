@@ -1,17 +1,10 @@
 import * as React from 'react'
 import { Link, useStaticQuery, graphql } from 'gatsby'
-import {
-  container,
-  heading,
-  navLinks,
-  navLinkItem,
-  navLinkText,
-  siteTitle,
-} from './layout.module.css'
+import Navbar from "./navbar"
 
 const Layout = ({ pageTitle, children }) => {
 
-    const data = useStaticQuery(graphql`
+  const data = useStaticQuery(graphql`
     query {
       site {
         siteMetadata {
@@ -21,33 +14,28 @@ const Layout = ({ pageTitle, children }) => {
     }
   `)
 
+
+  const navigation = [
+    { name: 'Home', href: '/' },
+    { name: 'About', href: '/about' },
+    { name: 'Projects', href: '/blog' },
+  ]
+
   return (
-    <main className={container}>
-      <title>{pageTitle} | {data.site.siteMetadata.title}</title>
-      <p className={siteTitle} >{data.site.siteMetadata.title}</p>
-      <nav>
-        <ul className={navLinks}>
-          <li className={navLinkItem}>
-            <Link to="/" className={navLinkText}>
-              Home
-            </Link>
-          </li>
-          <li className={navLinkItem}>
-            <Link to="/about" className={navLinkText}>
-              About
-            </Link>
-          </li>
-          <li className={navLinkItem}>
-            <Link to="/blog" className={navLinkText}>
-              Blog
-            </Link>
-          </li>
-        </ul>
-      </nav>
-      <h1 className={heading}>{pageTitle}</h1>
-      {children}
-    </main>
-  )
+    <>
+      <Navbar
+        navigation={navigation}>
+      </Navbar>
+        
+      <main className="font-sans py-2 mt-16">
+        <title>{pageTitle} | {data.site.siteMetadata.title}</title>
+
+        <div className="m-auto max-w-3xl">
+          <h1 className="text-purple-900 text-3xl">{pageTitle}</h1>
+          {children}
+        </div>
+      </main>
+  </>)
 }
 
 export default Layout

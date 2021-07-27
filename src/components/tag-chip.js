@@ -26,6 +26,4 @@ const TagChip = ({ text, onAdd, onRemove }) => {
   )
 }
 
-// @tailwind @apply
-
 export default TagChip

@@ -40,7 +40,11 @@ const BlogPage = ({data}) => {
     setPostsToDisplay(allPosts.filter(shouldPostDisplay))
   }
 
+  // add pagination
+  // https://tailwindui.com/components/application-ui/navigation/pagination
 
+  // interesting
+  // https://tailwindui.com/components/application-ui/overlays/slide-overs
 
   return (
     <Layout pageTitle="My Blog Posts">
