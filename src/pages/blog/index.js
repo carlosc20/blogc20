@@ -3,7 +3,7 @@ import Layout from "../../components/layout"
 import PostFilterList from "../../components/post-filter-list"
 import { Link, graphql } from "gatsby"
 
-const BlogPage = ({data}) => {
+const BlogPage = ({data, location}) => {
 
   const allPosts = data.allMdx.nodes
 
@@ -47,7 +47,7 @@ const BlogPage = ({data}) => {
   // https://tailwindui.com/components/application-ui/overlays/slide-overs
 
   return (
-    <Layout pageTitle="My Blog Posts">
+    <Layout pageTitle="My Blog Posts" location={location}>
       <PostFilterList
         filters={Array.from(uniquePostTags).sort()}
         onAdd={addFilter(selectedPostTags, setSelectedPostTags)}

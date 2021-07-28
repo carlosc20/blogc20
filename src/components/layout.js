@@ -2,7 +2,7 @@ import * as React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import Navbar from "./navbar"
 
-const Layout = ({ pageTitle, children }) => {
+const Layout = ({ pageTitle, children, location }) => {
 
   const data = useStaticQuery(graphql`
     query {
@@ -24,7 +24,9 @@ const Layout = ({ pageTitle, children }) => {
   return (
     <>
       <Navbar
-        navigation={navigation}>
+        navigation={navigation}
+        location={location}
+        >
       </Navbar>
         
       <main className="font-sans py-2 mt-16">

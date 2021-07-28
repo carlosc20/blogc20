@@ -5,11 +5,11 @@ import Layout from '../../components/layout'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import Seo from "../../components/seo"
 
-const BlogPostTemplate = ({data}) => {
+const BlogPostTemplate = ({data, location}) => {
   const image = getImage(data.mdx.frontmatter.hero_image)
 
   return (
-    <Layout pageTitle={data.mdx.frontmatter.title}>
+    <Layout pageTitle={data.mdx.frontmatter.title} location={location}>
       <Seo title={data.mdx.frontmatter.title} description={data.mdx.excerpt} />
       <p>Posted: {data.mdx.frontmatter.date}</p>
       <GatsbyImage

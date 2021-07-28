@@ -3,16 +3,21 @@ import { Disclosure } from '@headlessui/react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
 import { Link } from 'gatsby'
 
+
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
+// import { useLocation  } from '@reach/router';
+//  const location = useLocation();
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Navbar(props) {
+export default function Navbar( {navigation, location} ) {
 
-  var pathname = window.location.pathname
+  // pass through props
+  var pathname = location.pathname
 
   return (
     <Disclosure as="nav" className="bg-gray-800 fixed h-16 inset-x-0 top-0 z-50">
@@ -36,7 +41,7 @@ export default function Navbar(props) {
                 {/* PC nav buttons */}
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4">
-                    {props.navigation.map((item) => (
+                    {navigation.map((item) => (
                         <Link 
                             key={item.name}
                             to={item.href} 
@@ -76,7 +81,7 @@ export default function Navbar(props) {
           {/* Mobile nav buttons */}
           <Disclosure.Panel className="sm:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 bg-gray-800">
-              {props.navigation.map((item) => (
+              {navigation.map((item) => (
                   <Link 
                     key={item.name}
                     to={item.href} 
