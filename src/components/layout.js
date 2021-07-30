@@ -29,7 +29,7 @@ const Layout = ({ pageTitle, children, location }) => {
         >
       </Navbar>
         
-      <main className="font-sans py-2 mt-16">
+      <main className="font-sans py-2 mt-16 p-4">
         <title>{pageTitle} | {data.site.siteMetadata.title}</title>
 
         <div className="m-auto max-w-3xl">
@@ -37,6 +37,10 @@ const Layout = ({ pageTitle, children, location }) => {
           {children}
         </div>
       </main>
+
+      <footer>
+        
+      </footer>
   </>)
 }
 

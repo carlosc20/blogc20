@@ -1,28 +1,16 @@
 import React, { useState } from "react"
-import {
-  selected
-} from './tag-chip.module.css'
+import { Switch } from '@headlessui/react'
 
-const TagChip = ({ text, onAdd, onRemove }) => {
-  const [isSelected, setIsSelected] = useState(false)
+const TagChip = ({ text, isSelected, onChange }) => {
 
   return (
-    <button
-      type="button"
-      className={`${isSelected ? selected : ""} btn btn-green`} 
-      onClick={() => {
-        if (isSelected) {
-          onRemove(text)
-        } else {
-          onAdd(text)
-        }
-        setIsSelected(!isSelected)
-      }}
-      data-text={text}
-      aria-pressed={isSelected.toString()}
-    >
+    <Switch
+      checked={isSelected}
+      onChange={onChange}
+      className={`${isSelected ? "font-bold ring-4 ring-green-900 ring-opacity-50" : ""} btn btn-green`}
+      >
       {text}
-    </button>
+    </Switch>
   )
 }
 
