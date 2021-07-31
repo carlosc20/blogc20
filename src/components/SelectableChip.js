@@ -1,7 +1,7 @@
-import React, { useState } from "react"
+import React from "react"
 import { Switch } from '@headlessui/react'
 
-const TagChip = ({ text, isSelected, onChange }) => {
+const SelectableChip = ({ text, isSelected, onChange }) => {
 
   return (
     <Switch
@@ -14,4 +14,4 @@ const TagChip = ({ text, isSelected, onChange }) => {
   )
 }
 
-export default TagChip
+export default SelectableChip

@@ -1,8 +1,9 @@
 import React, { useState } from "react"
-import Layout from "../../components/layout"
-import PostFilterList from "../../components/post-filter-list"
-import { Link, graphql } from "gatsby"
-import Seo from "../../components/seo"
+import Layout from "../../components/Layout"
+import FilterList from "../../components/FilterList"
+import { graphql } from "gatsby"
+import Seo from "../../components/Seo"
+import ProjectCard from "../../components/ProjectCard"
 
 const BlogPage = ({data, location}) => {
 
@@ -16,7 +17,6 @@ const BlogPage = ({data, location}) => {
   })
 
   const [selectedPostTags, setSelectedPostTags] = useState(new Set())
-  const [postsToDisplay, setPostsToDisplay] = useState(allPosts)
 
   const shouldPostDisplay = node => {
     // When no filters are selected, show all posts
@@ -34,14 +34,14 @@ const BlogPage = ({data, location}) => {
     } else {
       selectedPostTags.delete(tag);
     }
-    setSelectedPostTags(selectedPostTags)
-    setPostsToDisplay(allPosts.filter(shouldPostDisplay))
+    const newSet = selectedPostTags
+    setSelectedPostTags(newSet)
   }
 
   function setAllSelected(state) {
     if(state) {
-      setSelectedPostTags(new Set([]))
-      setPostsToDisplay(allPosts)
+      const newSet = selectedPostTags.clear()
+      setSelectedPostTags(newSet)
     }
   }
 
@@ -65,28 +65,23 @@ const BlogPage = ({data, location}) => {
   return (
     <Layout pageTitle="Projects" location={location}>
       <Seo title="Projects" />
-      <PostFilterList
+      <FilterList
         filters={Array.from(uniquePostTags).sort()}
         onChange={setSelected}
         onChangeAll={setAllSelected}
-        isTagSelected={isTagSelected}
-        areAllTagsSelected={areAllTagsSelected()}
+        isFilterSelected={isTagSelected}
+        areAllFiltersSelected={areAllTagsSelected()}
       />
       <ul>
-        { postsToDisplay.map(node => {
+        { allPosts.filter(shouldPostDisplay).map(node => {
           return (
             <li className="py-2" key={node.slug}>
-              <article className="mx-auto bg-white rounded-xl shadow-md overflow-hidden" >
-                <div className="p-8">
-                  <h2>
-                    <Link className="block text-lg leading-tight font-medium text-black hover:underline font-semibold" to={node.slug}>
-                      {node.frontmatter.title}
-                    </Link>
-                  </h2>
-                  <p className="text-gray-500" ><b>Posted:</b> {node.frontmatter.date}</p>
-                  <p className="text-gray-500" ><b>Tags:</b> {node.frontmatter.tags.join(", ")}</p>
-                </div>
-              </article>
+              <ProjectCard
+                title={node.frontmatter.title} 
+                link={node.slug}
+                date={node.frontmatter.date}
+                tags={node.frontmatter.tags}
+              />
             </li>
           )
         })}
