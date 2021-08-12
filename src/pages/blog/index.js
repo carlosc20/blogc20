@@ -1,8 +1,9 @@
 import React, { useState } from "react"
 import Layout from "../../components/Layout"
+import Seo from "../../components/Seo"
 import FilterList from "../../components/FilterList"
 import { graphql } from "gatsby"
-import Seo from "../../components/Seo"
+
 import ProjectCard from "../../components/ProjectCard"
 
 const BlogPage = ({data, location}) => {
@@ -56,6 +57,7 @@ const BlogPage = ({data, location}) => {
   // add pagination
   // https://tailwindui.com/components/application-ui/navigation/pagination
 
+  // infinite scroll
   // https://www.npmjs.com/package/react-infinite-scroll-component
 
   return (

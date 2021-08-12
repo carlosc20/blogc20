@@ -4,13 +4,13 @@ import SelectableChip from "./SelectableChip"
 const FilterList = ({ filters, onChange, onChangeAll, isFilterSelected, areAllFiltersSelected }) => {
 
   return (
-    <ul>
-      <li className="inline pr-4" key="All">
+    <ul className="flex flex-wrap gap-3">
+      <li key="all">
         <SelectableChip 
-          text="All" isSelected={areAllFiltersSelected} onChange={onChangeAll} />
+          text="all" isSelected={areAllFiltersSelected} onChange={onChangeAll} />
       </li>
       {filters.map((filter) => (
-        <li className="inline pr-4" key={filter} >
+        <li key={filter} >
           <SelectableChip 
             text={filter} isSelected={isFilterSelected(filter)} onChange={state => onChange(filter, state)} />
         </li>
