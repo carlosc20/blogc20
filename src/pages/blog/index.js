@@ -34,13 +34,13 @@ const BlogPage = ({data, location}) => {
     } else {
       selectedPostTags.delete(tag);
     }
-    const newSet = selectedPostTags
+    const newSet = new Set(selectedPostTags)
     setSelectedPostTags(newSet)
   }
 
   function setAllSelected(state) {
     if(state) {
-      const newSet = selectedPostTags.clear()
+      const newSet = new Set(selectedPostTags.clear())
       setSelectedPostTags(newSet)
     }
   }
@@ -55,10 +55,6 @@ const BlogPage = ({data, location}) => {
 
   // add pagination
   // https://tailwindui.com/components/application-ui/navigation/pagination
-
-  // interesting
-  // https://tailwindui.com/components/application-ui/overlays/slide-overs
-
 
   // https://www.npmjs.com/package/react-infinite-scroll-component
 

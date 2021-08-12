@@ -24,9 +24,16 @@
 .btn {
   @apply py-2 px-4 font-semibold rounded-lg shadow-md;
 }
-.btn-green {
-  @apply text-white bg-green-500 hover:bg-green-700;
+.btn-primary {
+  @apply text-white bg-green-600 hover:bg-green-800;
 }
+.btn-primary-selected {
+  @apply font-bold ring-4 ring-black ring-opacity-70;
+}
+.pill {
+  @apply pb-1 px-2 font-semibold rounded-full shadow-md;
+}
+
 
 body {
   @apply bg-gradient-to-r from-indigo-50 to-indigo-100;

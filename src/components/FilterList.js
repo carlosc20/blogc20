@@ -9,10 +9,10 @@ const FilterList = ({ filters, onChange, onChangeAll, isFilterSelected, areAllFi
         <SelectableChip 
           text="All" isSelected={areAllFiltersSelected} onChange={onChangeAll} />
       </li>
-      {filters.map((tag) => (
-        <li className="inline pr-4" key={tag} >
+      {filters.map((filter) => (
+        <li className="inline pr-4" key={filter} >
           <SelectableChip 
-            text={tag} isSelected={isFilterSelected(tag)} onChange={state => onChange(tag, state)} />
+            text={filter} isSelected={isFilterSelected(filter)} onChange={state => onChange(filter, state)} />
         </li>
       ))}
     </ul>

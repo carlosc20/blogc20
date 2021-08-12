@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     siteUrl: "https://www.yourdomain.tld",
     title: "Blog do Carlos",
-    description: `A simple description about pandas eating lots...`,
+    description: `Work in progress...`,
     author: `Carlos Castro`,
   },
   plugins: ["gatsby-plugin-gatsby-cloud",
