@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
-import Navbar from "./NavBar"
+import Navbar from "./Navbar"
 
 const Layout = ({ pageTitle, children, location }) => {
 
