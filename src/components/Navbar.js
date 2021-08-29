@@ -8,6 +8,8 @@ import { Link } from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
+import IconLink from './IconLink'
+
 // import { useLocation  } from '@reach/router';
 //  const location = useLocation();
 function classNames(...classes) {
@@ -59,21 +61,18 @@ export default function Navbar( {navigation, location} ) {
               </div>
               {/* Social media links */}
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                <a href="https://github.com/carlosc20" 
-                    target="_blank" 
-                    rel="noreferrer" 
-                    className="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white">
-                  <span className="sr-only">Github</span>
+                <IconLink
+                  name="GitHub"
+                  link="https://github.com/carlosc20"
+                >
                   <FontAwesomeIcon size="lg" icon={faGithub} aria-hidden="true" />
-                </a>
-                <a 
-                  href="https://www.linkedin.com/in/carlos-castro-b3a81a214/" 
-                  target="_blank" 
-                  rel="noreferrer" 
-                  className="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white">
-                  <span className="sr-only">Linked In</span>
+                </IconLink>
+                <IconLink
+                  name="Linked In"
+                  link="https://www.linkedin.com/in/carlos-castro-b3a81a214/"
+                >
                   <FontAwesomeIcon size="lg" icon={faLinkedin} aria-hidden="true" />
-                </a>
+                </IconLink>
               </div>
             </div>
           </div>

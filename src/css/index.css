@@ -30,6 +30,15 @@
 .btn-primary-selected {
   @apply font-bold ring-4 ring-black ring-opacity-70;
 }
+
+
+.btn-test {
+  @apply text-white bg-green-600  transition duration-300 ease-in-out hover:bg-green-400;
+}
+.btn-test-selected{
+  @apply font-bold text-green-600 bg-white ring-2 ring-green-600 transition duration-300 ease-in-out hover:bg-green-200;
+}
+
 .pill {
   @apply pb-1 px-2 font-semibold rounded-full shadow-md;
 }

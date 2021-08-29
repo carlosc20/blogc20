@@ -7,7 +7,7 @@ const SelectableChip = ({ text, isSelected, onChange }) => {
     <Switch
       checked={isSelected}
       onChange={onChange}
-      className={`${isSelected ? "btn-primary-selected" : ""} pill btn-primary`}
+      className={`${isSelected ? "btn-test-selected" : "btn-test"} pill `}
       >
       {text}
     </Switch>
