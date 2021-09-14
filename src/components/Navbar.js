@@ -19,7 +19,7 @@ function classNames(...classes) {
 export default function Navbar( {navigation, location} ) {
 
   // pass through props
-  var pathname = location.pathname
+  var pathname = location.pathname.split('/')[1]
 
   return (
     <Disclosure as="nav" className="bg-gray-800 fixed h-16 inset-x-0 top-0 z-50">
@@ -48,7 +48,7 @@ export default function Navbar( {navigation, location} ) {
                             key={item.name}
                             to={item.href} 
                             className={classNames(
-                                  item.href === pathname ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                                  item.href.split('/')[1] === pathname ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                                 'px-3 py-2 rounded-md text-sm font-medium'
                               )}
                             aria-current={item.href === pathname ? 'page' : undefined}

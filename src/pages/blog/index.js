@@ -60,6 +60,8 @@ const BlogPage = ({data, location}) => {
   // infinite scroll
   // https://www.npmjs.com/package/react-infinite-scroll-component
 
+  let postsToDisplay = allPosts.filter(shouldPostDisplay);
+
   return (
     <Layout pageTitle="Projects" location={location}>
       <Seo title="Projects" />
@@ -70,8 +72,9 @@ const BlogPage = ({data, location}) => {
         isFilterSelected={isTagSelected}
         areAllFiltersSelected={areAllTagsSelected()}
       />
-      <ul>
-        { allPosts.filter(shouldPostDisplay).map(node => {
+      {/* <p className="py-2">Projects found: {postsToDisplay.length}</p> */}
+      <ul className="pt-4">
+        { postsToDisplay.map(node => {
           return (
             <li className="py-2" key={node.slug}>
               <ProjectCard
@@ -79,6 +82,8 @@ const BlogPage = ({data, location}) => {
                 link={node.slug}
                 date={node.frontmatter.date}
                 tags={node.frontmatter.tags}
+                image={node.frontmatter.hero_image}
+                imageAlt={"Project Image"}
               />
             </li>
           )
@@ -95,6 +100,11 @@ export const query = graphql`
         frontmatter {
           date(formatString: "MMMM DD, YYYY")
           title
+          hero_image {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
           tags
         }
         slug
